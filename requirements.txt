@@ -1,0 +1,9 @@
+
+streamlit>=1.30
+numpy
+Pillow
+scikit-image
+
+# Optional for GAN mode:
+torch
+torchvision
