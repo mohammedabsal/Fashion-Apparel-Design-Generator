@@ -3,7 +3,7 @@ streamlit>=1.30
 numpy
 Pillow
 scikit-image
-
+streamlit_lottie
 # Optional for GAN mode:
 torch
 torchvision
