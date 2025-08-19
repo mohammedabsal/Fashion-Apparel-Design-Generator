@@ -524,7 +524,6 @@ with st.sidebar:
     - casual striped t-shirt, round neck, short sleeves, blue and white
     - formal black maxi skirt, high waist, ankle length
     - sporty orange jacket, zip-up, long sleeves
-    - vintage polka dot dress, square neckline, mini length
     - elegant formal evening dress, maxi length, off-shoulder, navy blue and gold
     - street style cropped jacket, geometric pattern, long sleeves, black and yellow
     - vintage midi skirt, floral pattern, high waist, pastel colors
