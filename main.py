@@ -525,6 +525,16 @@ with st.sidebar:
     - formal black maxi skirt, high waist, ankle length
     - sporty orange jacket, zip-up, long sleeves
     - vintage polka dot dress, square neckline, mini length
+    - elegant formal evening dress, maxi length, off-shoulder, navy blue and gold
+    - street style cropped jacket, geometric pattern, long sleeves, black and yellow
+    - vintage midi skirt, floral pattern, high waist, pastel colors
+    - sporty t-shirt, stripes, round neck, short sleeves, red and white
+    - casual boho blouse, polka dots, v-neck, threequarter sleeves, teal and coral
+    - summer mini dress, sleeveless, abstract pattern, pink and orange
+    - winter coat, solid color, turtleneck, long sleeves, gray and burgundy
+    - business formal pants, ankle length, solid navy, high waist
+    - party dress, metallic shimmer, square neckline, sleeveless, silver
+    - retro jumpsuit, bold stripes, collared, long sleeves, blue and green
     """)
 
 st.title("Fashion Apparel Designer — cGAN (with AI Design Agent)")
