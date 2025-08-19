@@ -28,7 +28,13 @@ app.py  (this file)
 requirements.txt (auto-written on first run if missing)
 weights/generator.pth (optional)
 """
-
+from streamlit_lottie import st_lottie
+import requests
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
 from ast import pattern
 import os
 import io
@@ -473,19 +479,9 @@ def generate_image(
     canvas = Image.alpha_composite(canvas, tex_rgba)
 
     return canvas.convert("RGB")
-
-
 # -------------- Streamlit UI --------------
-st.set_page_config(page_title="cGAN Fashion Designer", page_icon="👗", layout="wide")
 
-# Sidebar logo and header with Lottie animation
-from streamlit_lottie import st_lottie
-import requests
-def load_lottieurl(url):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
+st.set_page_config(page_title="cGAN Fashion Designer", page_icon="👗", layout="wide")
 
 with st.sidebar:
     st_lottie(load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_4kx2q32n.json"), height=120, key="fashion_anim")
@@ -520,21 +516,23 @@ with st.sidebar:
     st.markdown("---")
     st.subheader("Example Prompts")
     st.markdown("""
-    - boho floral midi dress in teal & mustard, v-neck, sleeveless
-    - casual striped t-shirt, round neck, short sleeves, blue and white
-    - formal black maxi skirt, high waist, ankle length
-    - sporty orange jacket, zip-up, long sleeves
-    - elegant formal evening dress, maxi length, off-shoulder, navy blue and gold
-    - street style cropped jacket, geometric pattern, long sleeves, black and yellow
-    - vintage midi skirt, floral pattern, high waist, pastel colors
-    - sporty t-shirt, stripes, round neck, short sleeves, red and white
-    - casual boho blouse, polka dots, v-neck, threequarter sleeves, teal and coral
-    - summer mini dress, sleeveless, abstract pattern, pink and orange
-    - winter coat, solid color, turtleneck, long sleeves, gray and burgundy
-    - business formal pants, ankle length, solid navy, high waist
-    - party dress, metallic shimmer, square neckline, sleeveless, silver
-    - retro jumpsuit, bold stripes, collared, long sleeves, blue and green
-    """)
+    <span style='font-size:15px'>
+    • boho floral midi dress in teal & mustard, v-neck, sleeveless<br>
+    • casual striped t-shirt, round neck, short sleeves, blue and white<br>
+    • formal black maxi skirt, high waist, ankle length<br>
+    • sporty orange jacket, zip-up, long sleeves<br>
+    • elegant formal evening dress, maxi length, off-shoulder, navy blue and gold<br>
+    • street style cropped jacket, geometric pattern, long sleeves, black and yellow<br>
+    • vintage midi skirt, floral pattern, high waist, pastel colors<br>
+    • sporty t-shirt, stripes, round neck, short sleeves, red and white<br>
+    • casual boho blouse, polka dots, v-neck, threequarter sleeves, teal and coral<br>
+    • summer mini dress, sleeveless, abstract pattern, pink and orange<br>
+    • winter coat, solid color, turtleneck, long sleeves, gray and burgundy<br>
+    • business formal pants, ankle length, solid navy, high waist<br>
+    • party dress, metallic shimmer, square neckline, sleeveless, silver<br>
+    • retro jumpsuit, bold stripes, collared, long sleeves, blue and green<br>
+    </span>
+    """, unsafe_allow_html=True)
 
 st.title("Fashion Apparel Designer — cGAN (with AI Design Agent)")
 st.markdown("<hr>", unsafe_allow_html=True)
@@ -595,6 +593,17 @@ with left:
             )
 
 st.markdown("<hr>", unsafe_allow_html=True)
+
+# --- New: Add a "How to use" expandable section at the bottom ---
+with st.expander("ℹ️ How to use this app"):
+    st.markdown("""
+    1. **Choose garment attributes** in the sidebar (category, pattern, style, etc).
+    2. **Pick or customize your palette** using the color pickers.
+    3. **Describe your vibe** in the AI Design Agent box and click "✨ Parse Prompt" for smart suggestions.
+    4. **Evolve latent** for new GAN-based variations.
+    5. **Shuffle palette** or **generate new seed** for more variety.
+    6. **Download your design** as PNG.
+    """)
 
 
 # '''
